@@ -39,6 +39,10 @@ dependencies:
   flutter_modular: ^5.0.3
   flutter_bloc: ^8.1.2
   modular_bloc_bind: ^1.0.1
+  isar: ^3.0.5
+  isar_flutter_libs: ^3.0.5
+  equatable: ^2.0.5
+  #path_provider: ^2.0.14
 
 dev_dependencies:
   flutter_test:
@@ -55,6 +59,8 @@ dev_dependencies:
   modular_test: ^2.0.0
   flutter_launcher_icons: ^0.12.0
   flutter_native_splash: ^2.2.19
+  isar_generator: ^3.0.5
+  build_runner: any
 
 
 flutter_icons:
