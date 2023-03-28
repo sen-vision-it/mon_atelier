@@ -1,10 +1,10 @@
+/*
 import 'package:bloc/bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:isar/isar.dart';
 
+import 'auth_cubit.dart';
 import 'user.dart';
-
-part 'auth_cubit.dart';
 
 class AuthModule extends Module {
   @override
@@ -33,23 +33,10 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> authenticate(int pinCode) async {
     final user = await _isar.user.where().pinCodeEqualTo(pinCode).findFirst();
     if (user != null) {
-      emit(AuthState.authenticated(user));
+      emit(AuthState.Authenticated(user));
     } else {
       emit(AuthState.unauthenticated());
     }
   }
 }
-
-class AuthState {
-  final User? user;
-
-  AuthState(this.user);
-
-  factory AuthState.initial() => AuthState(null);
-
-  factory AuthState.authenticated(User user) => AuthState(user);
-
-  factory AuthState.unauthenticated() => AuthState(null);
-
-  bool get isAuthenticated => user != null;
-}
+*/

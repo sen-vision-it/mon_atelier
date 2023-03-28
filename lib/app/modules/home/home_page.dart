@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../utilisateur/utilisateur_cubit.dart';
 import 'counter_cubit.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,10 +12,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final CounterCubit _counterCubit = Modular.get();
+  final UtilisateurCubit _userCubit = Modular.get();
 
   @override
   void dispose() {
     _counterCubit.close();
+    _userCubit.close();
     super.dispose();
   }
 

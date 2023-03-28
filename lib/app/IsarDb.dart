@@ -1,18 +1,20 @@
 import 'package:isar/isar.dart';
-
+import 'package:mon_atelier/app/modules/utilisateur/utilisateur.dart';
 
 class IsarDb {
-  static late Isar _isar;
+  static late Future<Isar> db;
 
-  /*static Future<void> init() async {
-    final appDocDir = await getApplicationDocumentsDirectory();
-    final dbPath = "${appDocDir.path}/isar.db";
-    _isar = await openIsar(path: dbPath, schemaVersion: 1, onCreate: (isar) {
-      isar.code().create();
-    });
+  IsarDb() {
+    db = openDB();
   }
-*/
-  static Isar get instance => _isar;
 
-  static openIsar({required String path, required int schemaVersion, required Null Function(dynamic isar) onCreate}) {}
+  static Future<Isar> openDB() async {
+    if (Isar.instanceNames.isEmpty) {
+      return await Isar.open(
+        [UtilisateurSchema],
+        inspector: true,
+      );
+    }
+    return Future.value(Isar.getInstance());
+  }
 }
